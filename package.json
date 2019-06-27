@@ -1,0 +1,21 @@
+{
+  "name": "sms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "cd ./apiserver && npm run dev",
+    "dev:web": "cd ./webserver && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BaTiany/SMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^4.1.1"
+  }
+}
