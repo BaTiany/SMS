@@ -1,5 +1,3 @@
-# lv-back
-
 ## 项目启动
 
 1. 全局安装 `concurrently`

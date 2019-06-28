@@ -1,5 +1,5 @@
 {
-  "name": "sms-apiserver",
+  "name": "lv-back-apiserver",
   "version": "1.0.0",
   "description": "",
   "main": "./src/server.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BaTiany/SMS.git"
+    "url": "https://gitee.com/Elvmx/lv-back.git"
   },
   "keywords": [],
   "author": "",
