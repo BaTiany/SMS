@@ -5,6 +5,8 @@ const { MONGODB_URI } = require('./utils/secrets');
 // Controllers (route handlers)
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
+const gradeController = require('./controllers/grade');
+const studentController = require('./controllers/student');
 
 // Create Express server
 const app = express();
@@ -31,6 +33,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Headers', 'content-type');
+  res.set('Access-Control-Allow-Methods', 'get, post, delete, put, update');
   next();
 });
 
@@ -38,12 +42,22 @@ app.use((req, res, next) => {
  * Primary app routes.
  */
 app.get('/', homeController.index);
-app.post('/login', userController.postLogin); // 用户登录
-app.post('/signup', userController.postSignup); // 用户注册
+app.post('/sign-in', userController.postSignIn); // 用户登录
+app.post('/sign-up', userController.postSignUp); // 用户注册
 
 /**
- * API examples routes.
+ * API routes.
  */
+app
+  .route('/api/grade/:id?')
+  .get(gradeController.getGradeList)
+  .post(gradeController.createGrade)
+  .delete(gradeController.deleteGrade);
+app
+  .route('/api/student/:id?')
+  .get(studentController.getStudentList)
+  .post(studentController.addStudent)
+  .delete(studentController.delStudent);
 
 /**
  * Error

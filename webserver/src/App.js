@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Loadable from 'react-loadable';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Spin, Alert } from 'antd';
+import AuthRoute from './utils/Auth';
 
 
 // import Login from '@/views/login';
@@ -61,7 +62,7 @@ export default class App extends Component {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/sign" component={Sign} />
-          <Route path="/" component={Home} />
+          <AuthRoute path="/" component={Home} />
         </Switch>
       </Router>
     );
