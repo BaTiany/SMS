@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import { Layout, Menu, Icon, Button } from 'antd';
 import { HomeWrap, SiderWrap, HeaderWrap, ContentWrap, Logo } from './style'
+import Student from "./student";
+import Grade from "./grade";
+
 
 
 export default class Home extends Component {
@@ -35,7 +38,7 @@ export default class Home extends Component {
                 <NavLink to="/student">学生管理</NavLink>
               </Menu.Item>
               <Menu.Item key="2">
-                <NavLink to="/teacher">教师管理</NavLink>
+                <NavLink to="/grade">班级管理</NavLink>
               </Menu.Item>
             </Menu>
 
@@ -51,9 +54,9 @@ export default class Home extends Component {
               <Button onClick={this.handleSignOut}>退出登录</Button>
             </HeaderWrap>
             <ContentWrap>
-              <Route path="/student" render={() => <h1>学生</h1>}></Route>
-              <Route path="/teacher" render={() => <h1>老师</h1>}></Route>
-              <Redirect to="/student"></Redirect>
+              <Route path="/student" component={Student} />
+              <Route path="/grade" component={Grade} />
+              <Redirect to="/student" />
             </ContentWrap>
           </Layout>
         </Layout>
